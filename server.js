@@ -39,6 +39,7 @@ import crypto from "crypto";
 import nodemailer from "nodemailer";
 import { fileURLToPath } from "url";
 import multer from "multer";
+import Groq from "groq-sdk";
 
 dotenv.config();
 
@@ -301,6 +302,13 @@ const GROQ_VISION_MODEL =
 
 const GROQ_API_URL =
     "https://api.groq.com/openai/v1/chat/completions";
+
+const groq =
+    GROQ_API_KEY
+        ? new Groq({
+            apiKey: GROQ_API_KEY
+        })
+        : null;
 
 // ============================================================
 // GMAIL CONFIGURATION
